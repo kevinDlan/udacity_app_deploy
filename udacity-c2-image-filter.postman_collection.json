@@ -1,0 +1,132 @@
+{
+	"info": {
+		"_postman_id": "66a1e281-e302-4c0f-8c76-5c26b9d5df1e",
+		"name": "udacity-c2-image-filter",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12881909"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"kevinkone19@gmail.com\",\r\n    \"password\":\"kevinKONE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/login",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "filter Image",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/filteredimage?image_url={{fileUrl}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"filteredimage"
+					],
+					"query": [
+						{
+							"key": "image_url",
+							"value": "{{fileUrl}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "try without auh",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/filteredimage?image_url={{fileUrl}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"filteredimage"
+					],
+					"query": [
+						{
+							"key": "image_url",
+							"value": "{{fileUrl}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://udagram-dev222222.us-east-1.elasticbeanstalk.com",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiJ9.ZW1haWw9a2V2aW5rb25lMTklNDBnbWFpbC5jb20mcGFzc3dvcmQ9a2V2aW5LT05F.8ZVwrrMnqhkWjd1DnBj6k6G4aQ-YRnkNkyclk06WCQ0",
+			"type": "string"
+		},
+		{
+			"key": "fileUrl",
+			"value": "https://i.pinimg.com/736x/c9/8f/e1/c98fe17dc7de72bb29c34a0c79ef5762.jpg",
+			"type": "string"
+		}
+	]
+}
