@@ -28,7 +28,7 @@ import { authenticated } from './middleware/auth';
    {
       return res.status(403).send({error:"provided url is not image url."})
    }
-    const filterUrl:string = await filterImageFromURL(image_url.trim());
+    const filterUrl:string = await filterImageFromURL(image_url.trim(), res);
      res.status(200).sendFile(filterUrl);
   });
   

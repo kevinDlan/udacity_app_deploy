@@ -1,4 +1,5 @@
 import fs from "fs";
+import { Response } from "express";
 import Jimp from "jimp";
 
 // filterImageFromURL
@@ -8,7 +9,7 @@ import Jimp from "jimp";
 //    inputURL: string - a publicly accessible url to an image file
 // RETURNS
 //    an absolute path to a filtered image locally saved file
-export async function filterImageFromURL(inputURL: string): Promise<string> {
+export async function filterImageFromURL(inputURL: string, res:Response): Promise<string> {
   return new Promise(async (resolve, reject) => {
     try {
       const photo = await Jimp.read(inputURL);
@@ -22,7 +23,8 @@ export async function filterImageFromURL(inputURL: string): Promise<string> {
           resolve(__dirname + outpath);
         });
     } catch (error) {
-      reject(error);
+       res.status(422).json({ message: "the provided image has malformated" });
+       reject(error);
     }
   });
 }
