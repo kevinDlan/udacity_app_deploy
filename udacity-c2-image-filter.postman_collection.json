@@ -48,9 +48,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{host}}/filteredimage?image_url={{fileUrl}}",
+					"raw": "{{localhost}}/filteredimage?image_url={{errorFileUrl}}",
 					"host": [
-						"{{host}}"
+						"{{localhost}}"
 					],
 					"path": [
 						"filteredimage"
@@ -58,7 +58,7 @@
 					"query": [
 						{
 							"key": "image_url",
-							"value": "{{fileUrl}}"
+							"value": "{{errorFileUrl}}"
 						}
 					]
 				}
@@ -126,6 +126,16 @@
 		{
 			"key": "fileUrl",
 			"value": "https://i.pinimg.com/736x/c9/8f/e1/c98fe17dc7de72bb29c34a0c79ef5762.jpg",
+			"type": "string"
+		},
+		{
+			"key": "errorFileUrl",
+			"value": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg",
+			"type": "string"
+		},
+		{
+			"key": "localhost",
+			"value": "http://localhost:8082",
 			"type": "string"
 		}
 	]
